@@ -57,5 +57,15 @@ namespace StringCalculator.Test {
 
             result.Should().Be(6);
         }
+
+        [Test]
+        public void return_addition_when_input_is_any_amount_of_numbers()
+        {
+            var input = "4,2,3";
+
+            var result = StringCalculator.Add(input);
+
+            result.Should().Be(9);
+        }
     }
 }

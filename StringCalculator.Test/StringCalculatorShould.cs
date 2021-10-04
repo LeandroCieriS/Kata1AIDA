@@ -39,13 +39,13 @@ namespace StringCalculator.Test {
         }
 
         [Test]
-        public void return_()
+        public void return_3_when_input_is_1_2()
         {
-            var input = "2";
+            var input = "1,2";
 
             var result = StringCalculator.Add(input);
 
-            result.Should().Be(2);
+            result.Should().Be(3);
         }
     }
 }

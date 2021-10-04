@@ -22,13 +22,7 @@ namespace StringCalculator
 
         private static IEnumerable<int> Transform(string input)
         {
-            var splittedInput = input.Split(SEPARATOR);
-            var parsedInput = new List<int>();
-            
-            foreach (var number in splittedInput)
-                parsedInput.Add(int.Parse(number));
-
-            return parsedInput.ToArray();
+            return input.Split(SEPARATOR).Select(int.Parse);
         }
     }
 }

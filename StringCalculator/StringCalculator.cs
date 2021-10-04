@@ -9,7 +9,8 @@ namespace StringCalculator {
             if (string.IsNullOrEmpty(input)) return 0;
             if (input.Contains(SEPARATOR))
             {
-                return 3;
+                var splittedInput = input.Split(",");
+                return int.Parse(splittedInput[0]) + int.Parse(splittedInput[1]);
             }
             return int.Parse(input);
         }

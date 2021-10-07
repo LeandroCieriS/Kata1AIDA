@@ -93,13 +93,24 @@ namespace StringCalculator.Test {
         [Test]
         public void return_exception_when_input_has_negative_numbers()
         {
+            // Given
             var input = "1,4,-1";
 
-            
-
+            // Then
             Action act = () => StringCalculator.Add(input);
             act.Should().Throw<InvalidOperationException>()
                 .WithMessage("negatives not allowed: -1");
         }
+
+        [Test]
+        public void should_ignore_numbers_bigger_than_1000()
+        {
+            var input = "2,1001";
+
+            var result = StringCalculator.Add(input);
+
+            result.Should().Be(2);
+        }
+
     }
 }

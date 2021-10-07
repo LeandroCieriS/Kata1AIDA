@@ -14,11 +14,7 @@ namespace StringCalculator
         {
             if (string.IsNullOrEmpty(input)) 
                 return 0;
-            return Filter(Transform(input)).Sum();
-
-            //var transformedInput = Transform(input);
-            //var filteredInput = Filter(transformedInput);
-            //return filteredInput.Sum();
+            return GetValidNumbers(Transform(input)).Sum();
         }
 
         private static IEnumerable<int> Transform(string input)
@@ -38,19 +34,22 @@ namespace StringCalculator
             return input.Replace(newDelimiter, SEPARATOR_COMMA);
         }
 
-        private static IEnumerable<int> Filter(IEnumerable<int> input)
+        private static IEnumerable<int> GetValidNumbers(IEnumerable<int> numbers)
         {
-            CheckForNegatives(input);
-            var listInput = input.ToList();
-            listInput.RemoveAll((i => i > 1000));
-            return listInput;
+            CheckForNegatives(numbers);
+            return numbers.Where(IsLowerThanMaximum);
+        }
+
+        private static bool IsLowerThanMaximum(int number)
+        {
+            return number <= 1000;
         }
 
         private static void CheckForNegatives(IEnumerable<int> input)
         {
             var negativeNumbers = input.Where(i => i < 0);
             if (negativeNumbers.Any()) 
-                throw new InvalidOperationException("negatives not allowed: " + string.Join(",", negativeNumbers.ToArray()));
+                throw new InvalidOperationException("negatives not allowed: " + string.Join(",", negativeNumbers));
         }
     }
 }

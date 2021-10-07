@@ -89,16 +89,17 @@ namespace StringCalculator.Test {
 
             result.Should().Be(3);
         }
-        
-        //[Test]
-        //public void return_exception_when_input_has_negative_numbers()
-        //{
-        //    var input = "1,4,-1";
 
-        //    var result = StringCalculator.Add(input);
+        [Test]
+        public void return_exception_when_input_has_negative_numbers()
+        {
+            var input = "1,4,-1";
 
-        //    Action act = () => StringCalculator.Add(input);
-        //    act.Should().Throw<InvalidDataException>().
-        //}
+            
+
+            Action act = () => StringCalculator.Add(input);
+            act.Should().Throw<InvalidOperationException>()
+                .WithMessage("negatives not allowed: -1");
+        }
     }
 }

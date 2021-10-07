@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace StringCalculator
@@ -13,7 +14,9 @@ namespace StringCalculator
         {
             if (string.IsNullOrEmpty(input)) 
                 return 0;
-            return Transform(input).Sum();
+            var transformedInput = Transform(input);
+            CheckForNegatives(transformedInput);
+            return transformedInput.Sum();
         }
 
         private static IEnumerable<int> Transform(string input)
@@ -23,12 +26,31 @@ namespace StringCalculator
                 input = ReplaceDelimiter(input);
                 input = input[4..];
             }
-                
+
             input = input.Replace(SEPARATOR_NEW_LINE, SEPARATOR_COMMA);
             return input.Split(SEPARATOR_COMMA).Select(int.Parse);
         }
 
-        private static string ReplaceDelimiter(string input)
+        private static void CheckForNegatives(IEnumerable<int> input)
+        {
+            var negativeNumbers = "";
+            foreach (var number in input)
+            {
+                if (number < 0) negativeNumbers += number + ",";
+            }
+            if (negativeNumbers != "")
+            {
+                negativeNumbers = FormatMessage(negativeNumbers);
+                throw new InvalidOperationException("negatives not allowed: " + negativeNumbers);
+            }
+        }
+
+        private static string FormatMessage(string negativeNumbers)
+        {
+            return negativeNumbers.Substring(0, negativeNumbers.Length - 1);
+        }
+
+    private static string ReplaceDelimiter(string input)
         {
             var newDelimiter = input[2];
             return input.Replace(newDelimiter, SEPARATOR_COMMA);

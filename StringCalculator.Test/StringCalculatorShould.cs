@@ -94,12 +94,12 @@ namespace StringCalculator.Test {
         public void return_exception_when_input_has_negative_numbers()
         {
             // Given
-            var input = "1,4,-1";
+            var input = "1,4,-1,-4";
 
             // Then
             Action act = () => StringCalculator.Add(input);
             act.Should().Throw<InvalidOperationException>()
-                .WithMessage("negatives not allowed: -1");
+                .WithMessage("negatives not allowed: -1,-4");
         }
 
         [Test]

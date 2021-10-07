@@ -13,14 +13,17 @@ namespace StringCalculator
         {
             if (string.IsNullOrEmpty(input)) 
                 return 0;
-            if (input.Contains(DELIMITER_SELECTOR))
-                input = ReplaceDelimiter(input);
             return Transform(input).Sum();
-
         }
 
         private static IEnumerable<int> Transform(string input)
         {
+            if (input.Contains(DELIMITER_SELECTOR))
+            {
+                input = ReplaceDelimiter(input);
+                input = input[4..];
+            }
+                
             input = input.Replace(SEPARATOR_NEW_LINE, SEPARATOR_COMMA);
             return input.Split(SEPARATOR_COMMA).Select(int.Parse);
         }
@@ -28,7 +31,6 @@ namespace StringCalculator
         private static string ReplaceDelimiter(string input)
         {
             var newDelimiter = input[2];
-            input = input.Substring(4);
             return input.Replace(newDelimiter, SEPARATOR_COMMA);
         }
     }

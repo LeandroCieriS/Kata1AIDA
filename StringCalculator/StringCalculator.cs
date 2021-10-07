@@ -5,24 +5,23 @@ namespace StringCalculator
 {
     public static class StringCalculator 
     {
-        private const string SEPARATOR = ",";
+        private const string SEPARATOR_COMMA = ",";
+        private const string SEPARATOR_NEW_LINE = "\n";
 
-        public static int Add(string input){
+        public static int Add(string input)
+        {
             if (string.IsNullOrEmpty(input)) 
                 return 0;
-            input = input.Replace(",\n", SEPARATOR);
-            if (input.Contains(SEPARATOR))
-            {
-                var transformedInput = Transform(input);
-                return transformedInput.Sum();
-            }
-            
-            return int.Parse(input);
+            if (!input.Contains(SEPARATOR_COMMA) && !input.Contains(SEPARATOR_NEW_LINE)) 
+                return int.Parse(input);
+            return Transform(input).Sum();
+
         }
 
         private static IEnumerable<int> Transform(string input)
         {
-            return input.Split(SEPARATOR).Select(int.Parse);
+            input = input.Replace(SEPARATOR_NEW_LINE, SEPARATOR_COMMA);
+            return input.Split(SEPARATOR_COMMA).Select(int.Parse);
         }
     }
 }

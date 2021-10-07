@@ -67,5 +67,15 @@ namespace StringCalculator.Test {
 
             result.Should().Be(9);
         }
+        
+        [Test]
+        public void return_addition_when_input_has_new_line_as_separator()
+        {
+            var input = "4,2\n,2";
+
+            var result = StringCalculator.Add(input);
+
+            result.Should().Be(8);
+        }
     }
 }

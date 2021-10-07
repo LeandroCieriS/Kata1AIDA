@@ -45,9 +45,9 @@ namespace StringCalculator
             return number <= 1000;
         }
 
-        private static void CheckForNegatives(IEnumerable<int> input)
+        private static void CheckForNegatives(IEnumerable<int> numbers)
         {
-            var negativeNumbers = input.Where(i => i < 0);
+            var negativeNumbers = numbers.Where(number => number < 0);
             if (negativeNumbers.Any()) 
                 throw new InvalidOperationException("negatives not allowed: " + string.Join(",", negativeNumbers));
         }

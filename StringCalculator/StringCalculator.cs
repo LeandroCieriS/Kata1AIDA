@@ -4,34 +4,41 @@ using System.Linq;
 
 namespace StringCalculator
 {
-    public static class StringCalculator 
+    public static class StringCalculator
     {
         private const char SEPARATOR_COMMA = ',';
         private const char SEPARATOR_NEW_LINE = '\n';
-        private const string DELIMITER_SELECTOR = "//";
+        private const string SEPARATOR_SELECTOR = "//";
 
         public static int Add(string input)
         {
             if (string.IsNullOrEmpty(input)) 
                 return 0;
-            var transformedInput = Transform(input);
-            return FilterInput(transformedInput).Sum();
+            return Filter(Transform(input)).Sum();
+
+            //var transformedInput = Transform(input);
+            //var filteredInput = Filter(transformedInput);
+            //return filteredInput.Sum();
         }
 
         private static IEnumerable<int> Transform(string input)
         {
-            if (input.Contains(DELIMITER_SELECTOR))
+            if (input.Contains(SEPARATOR_SELECTOR))
             {
-                var newDelimiter = input[2];
-                input = input.Replace(newDelimiter, SEPARATOR_COMMA);
+                input = ReplaceSeparator(input);
                 input = input[4..];
             }
-
             input = input.Replace(SEPARATOR_NEW_LINE, SEPARATOR_COMMA);
             return input.Split(SEPARATOR_COMMA).Select(int.Parse);
         }
 
-        private static IEnumerable<int> FilterInput(IEnumerable<int> input)
+        private static string ReplaceSeparator(string input)
+        {
+            var newDelimiter = input[2];
+            return input.Replace(newDelimiter, SEPARATOR_COMMA);
+        }
+
+        private static IEnumerable<int> Filter(IEnumerable<int> input)
         {
             CheckForNegatives(input);
             var listInput = input.ToList();

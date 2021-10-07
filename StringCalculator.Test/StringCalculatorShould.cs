@@ -77,5 +77,15 @@ namespace StringCalculator.Test {
 
             result.Should().Be(8);
         }
+        
+        [Test]
+        public void return_addition_when_delimiter_is_provided_by_input()
+        {
+            var input = "//;\n1;2";
+
+            var result = StringCalculator.Add(input);
+
+            result.Should().Be(3);
+        }
     }
 }

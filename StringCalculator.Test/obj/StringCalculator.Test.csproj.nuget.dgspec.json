@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\lceri\\Desktop\\Kata1\\StringCalculator\\StringCalculator.Test\\StringCalculator.Test.csproj": {}
+    "C:\\Users\\lceri\\Desktop\\repos\\StringCalculator_Kata\\StringCalculator\\StringCalculator.Test\\StringCalculator.Test.csproj": {}
   },
   "projects": {
-    "C:\\Users\\lceri\\Desktop\\Kata1\\StringCalculator\\StringCalculator.Test\\StringCalculator.Test.csproj": {
+    "C:\\Users\\lceri\\Desktop\\repos\\StringCalculator_Kata\\StringCalculator\\StringCalculator.Application\\StringCalculator.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lceri\\Desktop\\Kata1\\StringCalculator\\StringCalculator.Test\\StringCalculator.Test.csproj",
-        "projectName": "StringCalculator.Test",
-        "projectPath": "C:\\Users\\lceri\\Desktop\\Kata1\\StringCalculator\\StringCalculator.Test\\StringCalculator.Test.csproj",
+        "projectUniqueName": "C:\\Users\\lceri\\Desktop\\repos\\StringCalculator_Kata\\StringCalculator\\StringCalculator.Application\\StringCalculator.Application.csproj",
+        "projectName": "StringCalculator.Application",
+        "projectPath": "C:\\Users\\lceri\\Desktop\\repos\\StringCalculator_Kata\\StringCalculator\\StringCalculator.Application\\StringCalculator.Application.csproj",
         "packagesPath": "C:\\Users\\lceri\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lceri\\Desktop\\Kata1\\StringCalculator\\StringCalculator.Test\\obj\\",
+        "outputPath": "C:\\Users\\lceri\\Desktop\\repos\\StringCalculator_Kata\\StringCalculator\\StringCalculator.Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\lceri\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -29,8 +29,200 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\lceri\\Desktop\\Kata1\\StringCalculator\\StringCalculator\\StringCalculator.csproj": {
-                "projectPath": "C:\\Users\\lceri\\Desktop\\Kata1\\StringCalculator\\StringCalculator\\StringCalculator.csproj"
+              "C:\\Users\\lceri\\Desktop\\repos\\StringCalculator_Kata\\StringCalculator\\StringCalculator\\StringCalculator.csproj": {
+                "projectPath": "C:\\Users\\lceri\\Desktop\\repos\\StringCalculator_Kata\\StringCalculator\\StringCalculator\\StringCalculator.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\lceri\\Desktop\\repos\\StringCalculator_Kata\\StringCalculator\\StringCalculator.Consolo\\StringCalculator.Console.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\lceri\\Desktop\\repos\\StringCalculator_Kata\\StringCalculator\\StringCalculator.Consolo\\StringCalculator.Console.csproj",
+        "projectName": "StringCalculator.Console",
+        "projectPath": "C:\\Users\\lceri\\Desktop\\repos\\StringCalculator_Kata\\StringCalculator\\StringCalculator.Consolo\\StringCalculator.Console.csproj",
+        "packagesPath": "C:\\Users\\lceri\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\lceri\\Desktop\\repos\\StringCalculator_Kata\\StringCalculator\\StringCalculator.Consolo\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\lceri\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://www.myget.org/F/aidacanarias/auth/91440d25-96ec-4958-861c-c4cac6f1192c/api/v2": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "C:\\Users\\lceri\\Desktop\\repos\\StringCalculator_Kata\\StringCalculator\\StringCalculator.Application\\StringCalculator.Application.csproj": {
+                "projectPath": "C:\\Users\\lceri\\Desktop\\repos\\StringCalculator_Kata\\StringCalculator\\StringCalculator.Application\\StringCalculator.Application.csproj"
+              },
+              "C:\\Users\\lceri\\Desktop\\repos\\StringCalculator_Kata\\StringCalculator\\StringCalculator.Infrastrucutre\\StringCalculator.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\lceri\\Desktop\\repos\\StringCalculator_Kata\\StringCalculator\\StringCalculator.Infrastrucutre\\StringCalculator.Infrastructure.csproj"
+              },
+              "C:\\Users\\lceri\\Desktop\\repos\\StringCalculator_Kata\\StringCalculator\\StringCalculator\\StringCalculator.csproj": {
+                "projectPath": "C:\\Users\\lceri\\Desktop\\repos\\StringCalculator_Kata\\StringCalculator\\StringCalculator\\StringCalculator.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\lceri\\Desktop\\repos\\StringCalculator_Kata\\StringCalculator\\StringCalculator.Infrastrucutre\\StringCalculator.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\lceri\\Desktop\\repos\\StringCalculator_Kata\\StringCalculator\\StringCalculator.Infrastrucutre\\StringCalculator.Infrastructure.csproj",
+        "projectName": "StringCalculator.Infrastructure",
+        "projectPath": "C:\\Users\\lceri\\Desktop\\repos\\StringCalculator_Kata\\StringCalculator\\StringCalculator.Infrastrucutre\\StringCalculator.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\lceri\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\lceri\\Desktop\\repos\\StringCalculator_Kata\\StringCalculator\\StringCalculator.Infrastrucutre\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\lceri\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://www.myget.org/F/aidacanarias/auth/91440d25-96ec-4958-861c-c4cac6f1192c/api/v2": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "C:\\Users\\lceri\\Desktop\\repos\\StringCalculator_Kata\\StringCalculator\\StringCalculator.Application\\StringCalculator.Application.csproj": {
+                "projectPath": "C:\\Users\\lceri\\Desktop\\repos\\StringCalculator_Kata\\StringCalculator\\StringCalculator.Application\\StringCalculator.Application.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\lceri\\Desktop\\repos\\StringCalculator_Kata\\StringCalculator\\StringCalculator.Test\\StringCalculator.Test.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\lceri\\Desktop\\repos\\StringCalculator_Kata\\StringCalculator\\StringCalculator.Test\\StringCalculator.Test.csproj",
+        "projectName": "StringCalculator.Test",
+        "projectPath": "C:\\Users\\lceri\\Desktop\\repos\\StringCalculator_Kata\\StringCalculator\\StringCalculator.Test\\StringCalculator.Test.csproj",
+        "packagesPath": "C:\\Users\\lceri\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\lceri\\Desktop\\repos\\StringCalculator_Kata\\StringCalculator\\StringCalculator.Test\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\lceri\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://www.myget.org/F/aidacanarias/auth/91440d25-96ec-4958-861c-c4cac6f1192c/api/v2": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "C:\\Users\\lceri\\Desktop\\repos\\StringCalculator_Kata\\StringCalculator\\StringCalculator.Application\\StringCalculator.Application.csproj": {
+                "projectPath": "C:\\Users\\lceri\\Desktop\\repos\\StringCalculator_Kata\\StringCalculator\\StringCalculator.Application\\StringCalculator.Application.csproj"
+              },
+              "C:\\Users\\lceri\\Desktop\\repos\\StringCalculator_Kata\\StringCalculator\\StringCalculator.Consolo\\StringCalculator.Console.csproj": {
+                "projectPath": "C:\\Users\\lceri\\Desktop\\repos\\StringCalculator_Kata\\StringCalculator\\StringCalculator.Consolo\\StringCalculator.Console.csproj"
+              },
+              "C:\\Users\\lceri\\Desktop\\repos\\StringCalculator_Kata\\StringCalculator\\StringCalculator.Infrastrucutre\\StringCalculator.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\lceri\\Desktop\\repos\\StringCalculator_Kata\\StringCalculator\\StringCalculator.Infrastrucutre\\StringCalculator.Infrastructure.csproj"
+              },
+              "C:\\Users\\lceri\\Desktop\\repos\\StringCalculator_Kata\\StringCalculator\\StringCalculator\\StringCalculator.csproj": {
+                "projectPath": "C:\\Users\\lceri\\Desktop\\repos\\StringCalculator_Kata\\StringCalculator\\StringCalculator\\StringCalculator.csproj"
               }
             }
           }
@@ -52,6 +244,10 @@
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
               "version": "[16.9.4, )"
+            },
+            "NSubstitute": {
+              "target": "Package",
+              "version": "[4.2.2, )"
             },
             "NUnit": {
               "target": "Package",
@@ -81,18 +277,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\lceri\\Desktop\\Kata1\\StringCalculator\\StringCalculator\\StringCalculator.csproj": {
+    "C:\\Users\\lceri\\Desktop\\repos\\StringCalculator_Kata\\StringCalculator\\StringCalculator\\StringCalculator.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lceri\\Desktop\\Kata1\\StringCalculator\\StringCalculator\\StringCalculator.csproj",
+        "projectUniqueName": "C:\\Users\\lceri\\Desktop\\repos\\StringCalculator_Kata\\StringCalculator\\StringCalculator\\StringCalculator.csproj",
         "projectName": "StringCalculator",
-        "projectPath": "C:\\Users\\lceri\\Desktop\\Kata1\\StringCalculator\\StringCalculator\\StringCalculator.csproj",
+        "projectPath": "C:\\Users\\lceri\\Desktop\\repos\\StringCalculator_Kata\\StringCalculator\\StringCalculator\\StringCalculator.csproj",
         "packagesPath": "C:\\Users\\lceri\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lceri\\Desktop\\Kata1\\StringCalculator\\StringCalculator\\obj\\",
+        "outputPath": "C:\\Users\\lceri\\Desktop\\repos\\StringCalculator_Kata\\StringCalculator\\StringCalculator\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\lceri\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -136,7 +332,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     }

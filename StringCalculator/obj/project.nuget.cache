@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Y1J4cqmMRZd5z9sF7d8N1znScr/X6JEcsjTQXYe8+7qiBJsiY8tn4RTnnZc7xii23h2oAcDtY43cE5O+vS5BPA==",
+  "dgSpecHash": "7BKHd6nxf8SXPULwAw+ICI3rYi9+0a19r4JKBKrAF6t9pmJDrJ7YB3MJhPHfqHPnqU7uZhy75k1oCjX+Nonl1w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\lceri\\Desktop\\Kata1\\StringCalculator\\StringCalculator\\StringCalculator.csproj",
+  "projectFilePath": "C:\\Users\\lceri\\Desktop\\repos\\StringCalculator_Kata\\StringCalculator\\StringCalculator\\StringCalculator.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

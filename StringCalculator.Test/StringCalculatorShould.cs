@@ -1,13 +1,10 @@
 using System;
-using System.IO;
 using FluentAssertions;
 using NUnit.Framework;
 
 namespace StringCalculator.Test {
     public class StringCalculatorShould {
-        [SetUp]
-        public void Setup() {
-        }
+
 
         [Test]
         public void return_0_when_string_is_empty() 
@@ -75,7 +72,7 @@ namespace StringCalculator.Test {
         }
 
         [Test]
-        public void should_ignore_numbers_bigger_than_1000()
+        public void ignore_numbers_bigger_than_1000()
         {
             var input = "2,1001";
 
@@ -83,6 +80,5 @@ namespace StringCalculator.Test {
 
             result.Should().Be(2);
         }
-
     }
 }

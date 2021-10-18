@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <StartupObject>StringCalculator.Console.Program</StartupObject>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\StringCalculator.Application\StringCalculator.Application.csproj" />
+    <ProjectReference Include="..\StringCalculator.Infrastrucutre\StringCalculator.Infrastructure.csproj" />
+    <ProjectReference Include="..\StringCalculator\StringCalculator.csproj" />
+  </ItemGroup>
+
+</Project>

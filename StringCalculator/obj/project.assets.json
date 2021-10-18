@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\lceri\\Desktop\\Kata1\\StringCalculator\\StringCalculator\\StringCalculator.csproj",
+      "projectUniqueName": "C:\\Users\\lceri\\Desktop\\repos\\StringCalculator_Kata\\StringCalculator\\StringCalculator\\StringCalculator.csproj",
       "projectName": "StringCalculator",
-      "projectPath": "C:\\Users\\lceri\\Desktop\\Kata1\\StringCalculator\\StringCalculator\\StringCalculator.csproj",
+      "projectPath": "C:\\Users\\lceri\\Desktop\\repos\\StringCalculator_Kata\\StringCalculator\\StringCalculator\\StringCalculator.csproj",
       "packagesPath": "C:\\Users\\lceri\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\lceri\\Desktop\\Kata1\\StringCalculator\\StringCalculator\\obj\\",
+      "outputPath": "C:\\Users\\lceri\\Desktop\\repos\\StringCalculator_Kata\\StringCalculator\\StringCalculator\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\lceri\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -61,7 +61,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -17,7 +17,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\StringCalculator.Application\StringCalculator.Application.csproj" />
-    <ProjectReference Include="..\StringCalculator.Consolo\StringCalculator.Console.csproj" />
     <ProjectReference Include="..\StringCalculator.Infrastrucutre\StringCalculator.Infrastructure.csproj" />
     <ProjectReference Include="..\StringCalculator\StringCalculator.csproj" />
   </ItemGroup>

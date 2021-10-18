@@ -1376,21 +1376,6 @@
           "bin/placeholder/StringCalculator.Application.dll": {}
         }
       },
-      "StringCalculator.Console/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v3.1",
-        "dependencies": {
-          "StringCalculator": "1.0.0",
-          "StringCalculator.Application": "1.0.0",
-          "StringCalculator.Infrastructure": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/StringCalculator.Console.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/StringCalculator.Console.dll": {}
-        }
-      },
       "StringCalculator.Infrastructure/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
@@ -5305,11 +5290,6 @@
       "path": "../StringCalculator.Application/StringCalculator.Application.csproj",
       "msbuildProject": "../StringCalculator.Application/StringCalculator.Application.csproj"
     },
-    "StringCalculator.Console/1.0.0": {
-      "type": "project",
-      "path": "../StringCalculator.Consolo/StringCalculator.Console.csproj",
-      "msbuildProject": "../StringCalculator.Consolo/StringCalculator.Console.csproj"
-    },
     "StringCalculator.Infrastructure/1.0.0": {
       "type": "project",
       "path": "../StringCalculator.Infrastrucutre/StringCalculator.Infrastructure.csproj",
@@ -5325,7 +5305,6 @@
       "NUnit3TestAdapter >= 3.17.0",
       "StringCalculator >= 1.0.0",
       "StringCalculator.Application >= 1.0.0",
-      "StringCalculator.Console >= 1.0.0",
       "StringCalculator.Infrastructure >= 1.0.0",
       "coverlet.collector >= 3.0.2"
     ]
@@ -5360,9 +5339,6 @@
           "projectReferences": {
             "C:\\Users\\lceri\\Desktop\\repos\\StringCalculator_Kata\\StringCalculator\\StringCalculator.Application\\StringCalculator.Application.csproj": {
               "projectPath": "C:\\Users\\lceri\\Desktop\\repos\\StringCalculator_Kata\\StringCalculator\\StringCalculator.Application\\StringCalculator.Application.csproj"
-            },
-            "C:\\Users\\lceri\\Desktop\\repos\\StringCalculator_Kata\\StringCalculator\\StringCalculator.Consolo\\StringCalculator.Console.csproj": {
-              "projectPath": "C:\\Users\\lceri\\Desktop\\repos\\StringCalculator_Kata\\StringCalculator\\StringCalculator.Consolo\\StringCalculator.Console.csproj"
             },
             "C:\\Users\\lceri\\Desktop\\repos\\StringCalculator_Kata\\StringCalculator\\StringCalculator.Infrastrucutre\\StringCalculator.Infrastructure.csproj": {
               "projectPath": "C:\\Users\\lceri\\Desktop\\repos\\StringCalculator_Kata\\StringCalculator\\StringCalculator.Infrastrucutre\\StringCalculator.Infrastructure.csproj"

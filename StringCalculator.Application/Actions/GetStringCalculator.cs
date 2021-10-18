@@ -5,27 +5,29 @@ namespace StringCalculator.Application.Actions
 {
     public class GetStringCalculator
     {
-        private readonly IPrinterReader printerReader;
         private readonly ILogger logger;
 
-        public GetStringCalculator(IPrinterReader printerReader, ILogger logger)
+        public GetStringCalculator(ILogger logger)
         {
-            this.printerReader = printerReader;
             this.logger = logger;
         }
 
-        public void Execute(string input)
+        public string Execute(string input)
         {
             try
             {
                 var result = StringCalculator.Add(input).ToString();
-                printerReader.Write(result);
                 logger.Write(input + " = " + result);
+                return result;
+            }
+            catch (InvalidOperationException e)
+            {
+                logger.Write(input + " = " + e.Message);
+                return e.Message;
             }
             catch (Exception e)
             {
-                printerReader.Write(e.Message);
-                logger.Write(input + " = " + e.Message);
+                throw e;
             }
         }
     }

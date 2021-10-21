@@ -1,15 +1,10 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Threading.Tasks;
 using StringCalculator.Application.Actions;
 
 namespace StringCalculator.Api.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/StringCalculator")]
     [ApiController]
     [Produces("application/json")]
     public class StringCalculator : ControllerBase
@@ -26,7 +21,7 @@ namespace StringCalculator.Api.Controllers
         {
             try
             {
-                return Ok(stringCalculator.Execute(input));
+                return Ok(stringCalculator.Execute(ParseInput(input)));
             }
             catch (InvalidOperationException e)
             {
@@ -36,6 +31,11 @@ namespace StringCalculator.Api.Controllers
             {
                 return StatusCode(500, e);
             }
+        }
+
+        private static string ParseInput(string input)
+        {
+            return input.Replace("\\n", "\n");
         }
     }
 }

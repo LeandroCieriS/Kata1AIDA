@@ -4,14 +4,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using StringCalculator.Application.Actions;
 using StringCalculator.Application.Models;
 using StringCalculator.Infrastructure;
 using Microsoft.OpenApi.Models;
+using StringCalculator.Api.HealthChecks;
 
 namespace StringCalculator.Api
 {
@@ -27,9 +24,10 @@ namespace StringCalculator.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddHealthChecks().AddCheck<LoggerHealthCheck>("Log file health check");
             services.AddControllers();
             services.AddScoped<GetStringCalculator>();
-            services.AddScoped<ILogger, TextFileLogger>(_ => new TextFileLogger("./log.txt"));
+            services.AddScoped<ILogger, TextFileLogger>(_ => new TextFileLogger("../Logs/log.txt"));
             AddSwagger(services);
         }
 
@@ -56,10 +54,11 @@ namespace StringCalculator.Api
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHealthChecks("/health");
             });
         }
 
-        private void AddSwagger(IServiceCollection services)
+        private static void AddSwagger(IServiceCollection services)
         {
             services.AddSwaggerGen(options =>
             {

@@ -20,14 +20,24 @@ namespace StringCalculator.Application.Actions
                 logger.Write(input + " = " + result);
                 return result;
             }
-            catch (InvalidOperationException e)
+            catch (Exception e)
             {
                 logger.Write(input + " = " + e.Message);
                 return e.Message;
             }
+        }
+        public string ExecuteV2(string input)
+        {
+            try
+            {
+                var result = StringCalculator.AddWithNegatives(input).ToString();
+                logger.Write(input + " = " + result);
+                return result;
+            }
             catch (Exception e)
             {
-                throw e;
+                logger.Write(input + " = " + e.Message);
+                return e.Message;
             }
         }
     }

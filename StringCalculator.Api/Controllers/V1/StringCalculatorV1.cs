@@ -4,15 +4,15 @@ using StringCalculator.Application.Actions;
 
 namespace StringCalculator.Api.Controllers
 {
-    [ApiVersion("2")]
+    [ApiVersion("1")]
     [Route("api/v{version:apiVersion}/StringCalculator")]
     [ApiController]
     [Produces("application/json")]
-    public class StringCalculator : ControllerBase
+    public class StringCalculatorV1 : ControllerBase
     {
         private readonly GetStringCalculator stringCalculator;
 
-        public StringCalculator(GetStringCalculator stringCalculator)
+        public StringCalculatorV1(GetStringCalculator stringCalculator)
         {
             this.stringCalculator = stringCalculator;
         }
@@ -22,7 +22,7 @@ namespace StringCalculator.Api.Controllers
         {
             try
             {
-                return Ok(stringCalculator.ExecuteV2(ParseInput(input)));
+                return Ok(stringCalculator.Execute(ParseInput(input)));
             }
             catch (InvalidOperationException e)
             {

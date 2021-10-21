@@ -14,7 +14,16 @@ namespace StringCalculator
         {
             if (string.IsNullOrEmpty(input)) 
                 return 0;
-            return GetValidNumbers(Transform(input)).Sum();
+            var numbers = Transform(input);
+            CheckForNegatives(numbers);
+            return numbers.Where(IsBetweenLimits).Sum();
+        }
+
+        public static int AddWithNegatives(string input)
+        {
+            if (string.IsNullOrEmpty(input))
+                return 0;
+            return Transform(input).Where(IsBetweenLimits).Sum();
         }
 
         private static IEnumerable<int> Transform(string input)
@@ -34,15 +43,9 @@ namespace StringCalculator
             return input.Replace(newDelimiter, SEPARATOR_COMMA);
         }
 
-        private static IEnumerable<int> GetValidNumbers(IEnumerable<int> numbers)
+        private static bool IsBetweenLimits(int number)
         {
-            CheckForNegatives(numbers);
-            return numbers.Where(IsLowerThanMaximum);
-        }
-
-        private static bool IsLowerThanMaximum(int number)
-        {
-            return number <= 1000;
+            return number <= 1000 && number >= -1000;
         }
 
         private static void CheckForNegatives(IEnumerable<int> numbers)

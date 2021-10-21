@@ -52,7 +52,7 @@ namespace StringCalculator.Test {
         [Test]
         public void return_addition_when_delimiter_is_provided_by_input()
         {
-            var input = "//;\n1;2";
+            const string input = "//;\n1;2";
 
             var result = StringCalculator.Add(input);
 
@@ -63,7 +63,7 @@ namespace StringCalculator.Test {
         public void return_exception_when_input_has_negative_numbers()
         {
             // Given
-            var input = "1,4,-1,-4";
+            const string input = "1,4,-1,-4";
 
             // Then
             Action act = () => StringCalculator.Add(input);
@@ -74,11 +74,21 @@ namespace StringCalculator.Test {
         [Test]
         public void ignore_numbers_bigger_than_1000()
         {
-            var input = "2,1001";
+            const string input = "2,1001";
 
             var result = StringCalculator.Add(input);
 
             result.Should().Be(2);
+        }
+        
+        [Test]
+        public void return_substract_negative_numbers()
+        {
+            const string input = "2,-1,-5,3,-1004";
+
+            var result = StringCalculator.AddWithNegatives(input);
+
+            result.Should().Be(-1);
         }
     }
 }

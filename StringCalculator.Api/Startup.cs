@@ -14,7 +14,7 @@ namespace StringCalculator.Api
 {
     public class Startup
     {
-        private const string logPath = "../Logs/log.txt";
+        private const string LogPath = "../Logs/log.txt";
 
         public Startup(IConfiguration configuration)
         {
@@ -27,10 +27,10 @@ namespace StringCalculator.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddHealthChecks().AddTypeActivatedCheck<LoggerHealthCheck>(
-                "Log file health check", logPath);
+                "Log file health check", LogPath);
             services.AddControllers();
             services.AddScoped<GetStringCalculator>();
-            services.AddScoped<ILogger, TextFileLogger>(_ => new TextFileLogger(logPath));
+            services.AddScoped<ILogger, TextFileLogger>(_ => new TextFileLogger(LogPath));
             AddSwagger(services);
         }
 

@@ -14,6 +14,8 @@ namespace StringCalculator.Api
 {
     public class Startup
     {
+        private const string logPath = "../Logs/log.txt";
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -24,10 +26,11 @@ namespace StringCalculator.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddHealthChecks().AddCheck<LoggerHealthCheck>("Log file health check");
+            services.AddHealthChecks().AddTypeActivatedCheck<LoggerHealthCheck>(
+                "Log file health check", logPath);
             services.AddControllers();
             services.AddScoped<GetStringCalculator>();
-            services.AddScoped<ILogger, TextFileLogger>(_ => new TextFileLogger("../Logs/log.txt"));
+            services.AddScoped<ILogger, TextFileLogger>(_ => new TextFileLogger(logPath));
             AddSwagger(services);
         }
 

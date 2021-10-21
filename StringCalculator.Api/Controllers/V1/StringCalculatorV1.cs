@@ -1,8 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System;
+﻿using System;
+using Microsoft.AspNetCore.Mvc;
 using StringCalculator.Application.Actions;
 
-namespace StringCalculator.Api.Controllers
+namespace StringCalculator.Api.Controllers.V1
 {
     [ApiVersion("1")]
     [Route("api/v{version:apiVersion}/StringCalculator")]

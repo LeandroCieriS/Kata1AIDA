@@ -38,7 +38,7 @@ namespace StringCalculator.Api
             });
             services.AddVersionedApiExplorer(options =>
             {
-                options.GroupNameFormat = "'v'VVV";
+                options.GroupNameFormat = "'v'V";
                 options.SubstituteApiVersionInUrl = true;
             });
             services.ConfigureOptions<ConfigureSwaggerOptions>();

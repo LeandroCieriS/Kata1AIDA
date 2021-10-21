@@ -4,7 +4,8 @@ using StringCalculator.Application.Actions;
 
 namespace StringCalculator.Api.Controllers
 {
-    [Route("api/StringCalculator")]
+    [ApiVersion("1")]
+    [Route("api/v{version:apiVersion}/StringCalculator")]
     [ApiController]
     [Produces("application/json")]
     public class StringCalculator : ControllerBase

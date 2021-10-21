@@ -7,11 +7,11 @@ namespace StringCalculator.Api.HealthChecks
 {
     public class LoggerHealthCheck : IHealthCheck
     {
-        private readonly string path;
+        private readonly string dirPath;
 
-        public LoggerHealthCheck(string path)
+        public LoggerHealthCheck(string dirPath)
         {
-            this.path = path;
+            this.dirPath = dirPath;
         }
 
         public Task<HealthCheckResult> CheckHealthAsync(
@@ -20,17 +20,27 @@ namespace StringCalculator.Api.HealthChecks
         {
             try
             {
-                var logFileStream = File.OpenWrite(path);
-                logFileStream.Close();
+                CheckAccessToDirectory();
                 return Task.FromResult(
-                    HealthCheckResult.Healthy("Logger can be written on."));
+                    HealthCheckResult.Healthy("Can write on directory."));
             }
             catch
             {
                 return Task.FromResult(
                     new HealthCheckResult(context.Registration.FailureStatus,
-                        "Can not write on Log."));
+                        "Can not write on directory."));
             }
+        }
+
+        private void CheckAccessToDirectory()
+        {
+            File.Create(
+                Path.Combine(
+                    dirPath,
+                    Path.GetRandomFileName()
+                ),
+                1,
+                FileOptions.DeleteOnClose);
         }
     }
 }

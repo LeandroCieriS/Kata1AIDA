@@ -4,6 +4,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
+using HealthChecks.UI.Client;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+using Microsoft.Extensions.Diagnostics.HealthChecks;
 using StringCalculator.Application.Actions;
 using StringCalculator.Application.Models;
 using StringCalculator.Infrastructure;
@@ -14,7 +17,8 @@ namespace StringCalculator.Api
 {
     public class Startup
     {
-        private const string LogPath = "../Logs/log.txt";
+        private const string DirPath = "../Logs/";
+        private const string LogPath =  DirPath + "log.txt";
 
         public Startup(IConfiguration configuration)
         {
@@ -26,8 +30,8 @@ namespace StringCalculator.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddHealthChecks().AddTypeActivatedCheck<LoggerHealthCheck>(
-                "Log file health check", LogPath);
+            services.AddApiVersioning();
+            services.AddHealthChecks().AddFileSystemHealthCheck(DirPath);
             services.AddControllers();
             services.AddScoped<GetStringCalculator>();
             services.AddScoped<ILogger, TextFileLogger>(_ => new TextFileLogger(LogPath));
@@ -46,18 +50,18 @@ namespace StringCalculator.Api
                 app.UseExceptionHandler("/Error");
             }
 
-            app.UseSwagger();
-            app.UseSwaggerUI(c =>
+            app
+                .UseSwagger()
+                .UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Foo API V1");
-            });
-
-            app.UseRouting();
-
-            app.UseEndpoints(endpoints =>
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "String Calculator API");
+            })
+                .UseRouting()
+                .UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
-                endpoints.MapHealthChecks("/health");
+                endpoints.MapHealthChecks("/status.json", new HealthCheckOptions
+                { Predicate = _ => true, ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse });
             });
         }
 
@@ -80,6 +84,14 @@ namespace StringCalculator.Api
                     }
                 });
             });
+        }
+    }
+    public static class ServicesExtensions
+    {
+        public static IHealthChecksBuilder AddFileSystemHealthCheck(this IHealthChecksBuilder builder, string logFolderPath)
+        {
+            return builder.Add(new HealthCheckRegistration("Log Folder Health Check",
+                _ => new LoggerHealthCheck(logFolderPath), null, null));
         }
     }
 }

@@ -47,7 +47,8 @@ steps:
   displayName: "Publish"
   inputs:
     command: 'publish'
-    arguments : '--output $(Build.ArtifactStagingDirectory)'
+    publishWebProjects: true
+    arguments : '--output $(Build.ArtifactStagingDirectory) --configuration Release --no-restore --no-build'
 
 - task: PublishBuildArtifacts@1
   displayName: "Drop Artifact"

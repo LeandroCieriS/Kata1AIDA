@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System;
-using Microsoft.AspNetCore.Mvc.Versioning;
 using StringCalculator.Application.Actions;
 
 namespace StringCalculator.Api.Controllers
@@ -19,7 +18,7 @@ namespace StringCalculator.Api.Controllers
         }
 
         [HttpGet]
-        public ActionResult<string> Get(ApiVersion version, [FromQuery]string input)
+        public ActionResult<string> Get([FromQuery]string input)
         {
             
             try

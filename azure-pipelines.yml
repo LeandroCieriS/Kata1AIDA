@@ -47,5 +47,10 @@ steps:
   displayName: "Publish"
   inputs:
     command: 'publish'
-    projects: '**/*.Api.csproj'
-    publishWebProjects: false
+    arguments : '--output $(Build.ArtifactStagingDirectory)'
+
+- task: PublishBuildArtifacts@1
+  displayName: "Drop Artifact"
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'

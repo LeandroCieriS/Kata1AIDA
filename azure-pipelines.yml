@@ -44,7 +44,8 @@ steps:
     arguments: "--configuration Release --no-restore --no-build"
 
 - task: DotNetCoreCLI@2
+  displayName: "Publish"
   inputs:
     command: 'publish'
-    projects: 'StringCaluculator.Api/*.csproj'
+    projects: '**/*.Api.csproj'
     publishWebProjects: false

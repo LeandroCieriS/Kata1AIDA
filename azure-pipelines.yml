@@ -1,0 +1,47 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+pool: 'Aida'
+
+workspace:
+    clean: all
+
+name: $(Date:yy.MM.dd.HHmm)
+
+steps:
+- script: echo Hello, world!
+  displayName: 'Run a one-line script'
+
+- script: |
+    echo Add other tasks to build, test, and deploy your project.
+    echo See https://aka.ms/yaml
+  displayName: 'Run a multi-line script'
+
+- task: UseDotNet@2
+  inputs:
+    packageType: 'runtime'
+    version: '3.1.x'
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'restore'
+    projects: '/StringCalculator.sln'
+    arguments: "--configuration Release"
+    feedsToUse: 'select'
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'build'
+    projects: '/StringCalculator.sln'
+    arguments: "--configuration Release --no-restore"
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'test'
+    projects: '/StringCalculator.sln'
+    arguments: "--configuration Release --no-restore --no-build"

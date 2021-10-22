@@ -4,7 +4,13 @@
 # https://aka.ms/yaml
 
 trigger:
-- main
+  branches:
+    include:
+      - main
+  paths:
+    exclude:
+      - README.md
+      - Logs/*
 
 pool: 'Aida'
 
@@ -14,13 +20,6 @@ workspace:
 name: $(Date:yy.MM.dd.HHmm)
 
 steps:
-- script: echo Start Pipeline
-
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
-
 - task: UseDotNet@2
   displayName: "Use NetCore 3.1"
   inputs:
@@ -48,3 +47,4 @@ steps:
     command: 'test'
     projects: 'StringCalculator.sln'
     arguments: "--configuration Release --no-restore --no-build"
+

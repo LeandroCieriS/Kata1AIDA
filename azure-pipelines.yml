@@ -1,3 +1,8 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
 trigger:
   branches:
     include:
@@ -33,15 +38,15 @@ steps:
   displayName: "Build"
   inputs:
     command: 'build'
-    projects: 'StringCalculator.sln'
     arguments: "--configuration Release --no-restore"
+    projects: 'StringCalculator.sln'
 
 - task: DotNetCoreCLI@2
   displayName: "Test"
   inputs:
     command: 'test'
-    projects: 'StringCalculator.sln'
     arguments: "--configuration Release --no-restore --no-build"
+    projects: 'StringCalculator.sln'
 
 - task: DotNetCoreCLI@2
   displayName: "Publish"

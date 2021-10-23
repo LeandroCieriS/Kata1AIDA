@@ -12,8 +12,10 @@ namespace StringCalculator
 
         public static int Add(string input)
         {
-            if (string.IsNullOrEmpty(input)) 
+            if (string.IsNullOrEmpty(input))
+            {
                 return 0;
+            }
             var numbers = Transform(input);
             CheckForNegatives(numbers);
             return numbers.Where(IsBetweenLimits).Sum();
@@ -22,10 +24,11 @@ namespace StringCalculator
         public static int AddWithNegatives(string input)
         {
             if (string.IsNullOrEmpty(input))
+            {
                 return 0;
+            }
             return Transform(input).Where(IsBetweenLimits).Sum();
         }
-
         private static IEnumerable<int> Transform(string input)
         {
             if (input.Contains(SEPARATOR_SELECTOR))

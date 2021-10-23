@@ -7,14 +7,14 @@ namespace StringCalculator.Test
 {
     public class GetStringCalculatorShould
     {
-        private ILogger logger;
+        private CustomLogger _customLogger;
         private GetStringCalculator stringCalculator;
 
         [SetUp]
         public void Setup()
         {
-            logger = Substitute.For<ILogger>();
-            stringCalculator = new GetStringCalculator(logger);
+            _customLogger = Substitute.For<CustomLogger>();
+            stringCalculator = new GetStringCalculator(_customLogger);
         }
 
         [TestCase("4,-1,-5,2", "negatives not allowed: -1,-5")]
@@ -25,7 +25,7 @@ namespace StringCalculator.Test
 
             stringCalculator.Execute(input);
             
-            logger.Received(1).Write(input + " = " + output);
+            _customLogger.Received(1).Write(input + " = " + output);
         }
 
         [TestCase("4,-1,-5,2", "0")]
@@ -36,7 +36,7 @@ namespace StringCalculator.Test
 
             stringCalculator.ExecuteV2(input);
 
-            logger.Received(1).Write(input + " = " + output);
+            _customLogger.Received(1).Write(input + " = " + output);
         }
     }
 }

@@ -5,9 +5,9 @@ namespace StringCalculator.Application.Actions
 {
     public class GetStringCalculator
     {
-        private readonly ILogger logger;
+        private readonly CustomLogger logger;
 
-        public GetStringCalculator(ILogger logger)
+        public GetStringCalculator(CustomLogger logger)
         {
             this.logger = logger;
         }

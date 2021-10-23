@@ -1,6 +1,6 @@
 ﻿namespace StringCalculator.Application.Models
 {
-    public interface ILogger
+    public interface CustomLogger
     {
         void Write(string line);
     }

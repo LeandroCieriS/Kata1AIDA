@@ -45,7 +45,7 @@ namespace StringCalculator.Api
             services.AddHealthChecks().AddFileSystemHealthCheck(DirPath);
             services.AddControllers();
             services.AddScoped<GetStringCalculator>();
-            services.AddScoped<ILogger, TextFileLogger>(_ => new TextFileLogger(LogPath));
+            services.AddScoped<CustomLogger, TextFileCustomLogger>(_ => new TextFileCustomLogger(LogPath));
             services.AddSwaggerGen();
         }
 

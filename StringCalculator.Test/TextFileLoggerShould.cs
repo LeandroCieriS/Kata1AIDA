@@ -8,13 +8,13 @@ namespace StringCalculator.Test
 {
     public class TextFileLoggerShould
     {
-        private TextFileLogger logger;
+        private TextFileCustomLogger _customLogger;
         private const string path = "./testLog.txt";
 
         [SetUp]
         public void SetUp()
         {
-            logger = new TextFileLogger(path);
+            _customLogger = new TextFileCustomLogger(path);
         }
         
         [Test]
@@ -22,7 +22,7 @@ namespace StringCalculator.Test
         {
             const string input = "Mock result";
 
-            logger.Write(input);
+            _customLogger.Write(input);
 
             var result =  File.ReadAllText(path);
             result.Should().Be(DateTime.UtcNow.ToString("yyyy-MMM-dd HH:mm") +"  -  " + "Mock result\n");

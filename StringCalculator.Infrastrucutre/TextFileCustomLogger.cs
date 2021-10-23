@@ -4,10 +4,10 @@ using StringCalculator.Application.Models;
 
 namespace StringCalculator.Infrastructure
 {
-    public class TextFileLogger : ILogger
+    public class TextFileCustomLogger : CustomLogger
     {
         private readonly string path;
-        public TextFileLogger(string path)
+        public TextFileCustomLogger(string path)
         {
             this.path = path;
         }

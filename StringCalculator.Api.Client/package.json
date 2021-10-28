@@ -1,0 +1,27 @@
+{
+    "name": "StringCalculator-api-client-ts",
+    "version": "1.0.0",
+    "description": "StringCalculator Api TypeScript client",
+    "main": "dist/StringCalculator.api.clients.js",
+    "typings": "dist/StringCalculator.api.clients.d.ts",
+    "scripts": {
+        "prepublishOnly": "npm run compile",
+        "compile": "npm run clean && tsc -p .",
+        "watch": "tsc -w -p .",
+        "clean": "rimraf ./dist"
+    },
+    "keywords": [
+        "StringCalculator"
+    ],
+    "author": "",
+    "license": "MIT",
+    "devDependencies": {
+        "@types/node": "^8.0.0",
+        "typescript": "^3.8.2",
+        "rimraf": "^2.6.0"
+    },
+    "files": [
+        "dist/StringCalculator.api.clients.js",
+        "dist/StringCalculator.api.clients.d.ts"
+    ]
+}

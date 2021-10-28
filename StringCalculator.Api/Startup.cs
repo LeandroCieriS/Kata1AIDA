@@ -2,24 +2,21 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using HealthChecks.UI.Client;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
-using Microsoft.Extensions.Options;
 using StringCalculator.Application.Actions;
 using StringCalculator.Application.Models;
 using StringCalculator.Infrastructure;
-using Microsoft.OpenApi.Models;
+using NSwag.AspNetCore;
 using StringCalculator.Api.HealthChecks;
-using Swashbuckle.AspNetCore.SwaggerGen;
 
 namespace StringCalculator.Api
 {
     public class Startup
     {
-        private const string DirPath = "../Logs/";
+        private const string DirPath = "./";
         private const string LogPath =  DirPath + "log.txt";
 
         public Startup(IConfiguration configuration)
@@ -35,41 +32,34 @@ namespace StringCalculator.Api
             services.AddApiVersioning(options =>
             {
                 options.ReportApiVersions = true;
+                Controllers.StringCalculator.Convention(options);
+                Controllers.V1.StringCalculator.Convention(options);
             });
             services.AddVersionedApiExplorer(options =>
             {
-                options.GroupNameFormat = "'v'V";
+                options.GroupNameFormat = "'v'VVV";
                 options.SubstituteApiVersionInUrl = true;
             });
-            services.ConfigureOptions<ConfigureSwaggerOptions>();
             services.AddHealthChecks().AddFileSystemHealthCheck(DirPath);
             services.AddControllers();
             services.AddScoped<GetStringCalculator>();
             services.AddScoped<CustomLogger, TextFileCustomLogger>(_ => new TextFileCustomLogger(LogPath));
-            services.AddSwaggerGen();
+            services.ConfigureSwagger("StringCalculator");
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IApiVersionDescriptionProvider provider)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-            else
-            {
-                app.UseExceptionHandler("/Error");
-            }
-
             app
-                .UseSwagger()
-                .UseSwaggerUI(options =>
+                .UseOpenApi()
+                .UseSwaggerUi3(options =>
                 {
                     foreach (var description in provider.ApiVersionDescriptions)
                     {
-                        options.SwaggerEndpoint(
-                            $"/swagger/{description.GroupName}/swagger.json",
-                            description.GroupName.ToUpperInvariant());
+                        options.SwaggerRoutes.Add( new SwaggerUi3Route(
+                            description.GroupName.ToUpperInvariant(), 
+                            $"/swagger/{description.GroupName}/swagger.json")
+                        );
                     }
                 })
                 .UseRouting()
@@ -87,51 +77,6 @@ namespace StringCalculator.Api
         {
             return builder.Add(new HealthCheckRegistration("Log Folder Health Check",
                 _ => new LoggerHealthCheck(logFolderPath), null, null));
-        }
-    }
-
-    public class ConfigureSwaggerOptions
-        : IConfigureNamedOptions<SwaggerGenOptions>
-    {
-        private readonly IApiVersionDescriptionProvider provider;
-
-        public ConfigureSwaggerOptions(
-            IApiVersionDescriptionProvider provider)
-        {
-            this.provider = provider;
-        }
-
-        public void Configure(SwaggerGenOptions options)
-        {
-            // add swagger document for every API version discovered
-            foreach (var description in provider.ApiVersionDescriptions)
-            {
-                options.SwaggerDoc(
-                    description.GroupName,
-                    CreateVersionInfo(description));
-            }
-        }
-
-        public void Configure(string name, SwaggerGenOptions options)
-        {
-            Configure(options);
-        }
-
-        private OpenApiInfo CreateVersionInfo(
-            ApiVersionDescription description)
-        {
-            var info = new OpenApiInfo()
-            {
-                Title = "Heroes API",
-                Version = description.ApiVersion.ToString()
-            };
-
-            if (description.IsDeprecated)
-            {
-                info.Description += " This API version has been deprecated.";
-            }
-
-            return info;
         }
     }
 }

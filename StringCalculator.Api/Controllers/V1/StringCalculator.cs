@@ -1,5 +1,7 @@
 ﻿using System;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Versioning;
+using Microsoft.AspNetCore.Mvc.Versioning.Conventions;
 using StringCalculator.Application.Actions;
 
 namespace StringCalculator.Api.Controllers.V1
@@ -8,11 +10,11 @@ namespace StringCalculator.Api.Controllers.V1
     [Route("api/v{version:apiVersion}/StringCalculator")]
     [ApiController]
     [Produces("application/json")]
-    public class StringCalculatorV1 : ControllerBase
+    public class StringCalculator : ControllerBase
     {
         private readonly GetStringCalculator stringCalculator;
 
-        public StringCalculatorV1(GetStringCalculator stringCalculator)
+        public StringCalculator(GetStringCalculator stringCalculator)
         {
             this.stringCalculator = stringCalculator;
         }
@@ -37,6 +39,11 @@ namespace StringCalculator.Api.Controllers.V1
         private static string ParseInput(string input)
         {
             return input.Replace("\\n", "\n");
+        }
+
+        public static void Convention(ApiVersioningOptions options)
+        {
+            options.Conventions.Controller<StringCalculator>().HasApiVersions(ApiVersioning.Versions(1, 1));
         }
     }
 }

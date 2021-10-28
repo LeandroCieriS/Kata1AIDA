@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System;
+using Microsoft.AspNetCore.Mvc.Versioning;
+using Microsoft.AspNetCore.Mvc.Versioning.Conventions;
 using StringCalculator.Application.Actions;
 
 namespace StringCalculator.Api.Controllers
@@ -38,5 +40,11 @@ namespace StringCalculator.Api.Controllers
         {
             return input.Replace("\\n", "\n");
         }
+
+        public static void Convention(ApiVersioningOptions options)
+        {
+            options.Conventions.Controller<StringCalculator>().HasApiVersions(ApiVersioning.Versions(2));
+        }
     }
+    
 }
